@@ -1,0 +1,10 @@
+.container
+  .head1
+    -@fights.each do |f|
+      .panel
+        .link
+          = link_to f, class: "link" do
+            .row.well
+              = f.first.sname
+              VS
+              = f.second.sname

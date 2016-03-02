@@ -1,0 +1,11 @@
+.container
+  %table.table.table-hover
+    %thead
+      %tr
+        %th Name
+        %th Level
+    %tbody
+      -@skills.each do |f|
+        %tr
+          %td= f.name
+          %td= f.level

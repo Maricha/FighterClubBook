@@ -1,0 +1,27 @@
+.container.head1
+  .h1
+    Ranking
+  %table.table.table-hover
+    %thead
+      %tr
+        %th.text-center Avatar
+        %th.text-center Name
+        %th.text-center Exp
+        %th.text-center Wins
+        %th.text-center Draws
+        %th.text-center Loses
+    %tbody
+      - @books.each do |b|
+        %tr
+          %td
+            = image_tag b.avatar.url(:thumb)
+          %td
+            = link_to b.fname+" "+b.sname, b
+          %td
+            = exp(b.id)
+          %td
+            = wins(b.id)
+          %td
+            = draws(b.id)
+          %td
+            = losts(b.id)

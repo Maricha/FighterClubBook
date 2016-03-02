@@ -1,0 +1,20 @@
+.container
+  #loginbox.mainbox.col-md-6.col-md-offset-3.col-sm-8.col-sm-offset-2{style: "margin-top:50px;"}
+    .panel.panel-info
+      .panel-heading
+        .panel-title New Skill
+      .panel-body{style: "padding-top:30px"}
+        #login-alert.alert.alert-danger.col-sm-12{style: "display:none"}
+        = simple_form_for @skill do |f|
+          %form.form-horizontal{role: "form"}
+            .input-group{style: "margin-bottom: 25px"}
+              %span.input-group-addon
+                %i.glyphicon.glyphicon-book
+              = f.input :name, label: "Name", :autofocus => true, placeholder: 'Name of your skill', input_html: { class: 'form-control' }
+            .input-group{style: "margin-bottom: 25px"}
+              %span.input-group-addon
+                %i.glyphicon.glyphicon-star
+              = f.input :level, label: "Level", placeholder: 'Level of your skill', input_html: { min: '1', max: '5' }
+            .form-group{style: "margin-top:10px"}
+              .form-actions.col-sm-12.controls
+                = f.button :submit, "Add your skill", id: "btn", class: "btn btn-success"

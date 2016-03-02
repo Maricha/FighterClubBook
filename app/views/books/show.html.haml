@@ -1,0 +1,45 @@
+.container.head1
+  .row
+    .col-md-12.text-center
+      = image_tag @book.avatar.url(:medium)
+    .col-md-12
+      %h2.text-center
+        Title:
+        = @book.fname
+      %h2.text-center
+        Battle nick:
+        = @book.sname
+      %p.text-center
+        Description:
+        = @book.desc
+      %ul.list-group
+        %li.t1
+          .label-default
+            Experience:
+            = exp(@book.id)
+        %li.t1
+          .label-default
+            Wins:
+            = wins(@book.id)
+        %li.t1
+          .label-default
+            Losts:
+            = losts(@book.id)
+        %li.t1
+          .label-default
+            Draws:
+            = draws(@book.id)
+
+      %h3
+        %table.table.table-hover
+          %thead
+            %tr
+              %th.text-center Name
+              %th.text-center level
+          %tbody
+            - @book.skills.each do |s|
+              %tr
+                %td
+                  = s.name
+                %td
+                  = s.level

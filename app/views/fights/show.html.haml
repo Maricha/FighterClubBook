@@ -1,0 +1,35 @@
+.container
+  .head1
+    .panel-group
+      .panel.panel-default
+        - if @fight.draw
+          %h1.text-center.label-primary DRAW
+        - else
+          %h1.text-center.label-primary Winner
+          - if @fight.first.id == @fight.winner
+            = @fight.first.fname
+            = @fight.first.sname
+          - else
+            = @fight.second.fname
+            = @fight.second.sname
+        .row
+          .col-md-5
+            .col-md-7
+              = image_tag @fight.first.avatar.url(:medium), class: "img-rounded img=responsive img-center"
+            .col-md-5
+              %h3.label.label-primary
+                = @fight.first.fname
+                = @fight.first.sname
+              %h2
+                = @fight.attack
+          .col-md-2
+            %h1.text-center.label.label-danger VS
+          .col-md-5
+            .col-md-5
+              %h3.label.label-primary
+                = @fight.second.fname
+                = @fight.second.sname
+              %h2
+                = @fight.attack2
+            .col-md-7
+              = image_tag @fight.second.avatar.url(:medium), class: "img-rounded img-responsive img-center"
